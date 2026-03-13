@@ -1,12 +1,12 @@
 plugins {
 	java
-	id("org.springframework.boot") version "4.0.3"
+	id("org.springframework.boot") version "3.5.11"
 	id("io.spring.dependency-management") version "1.1.7"
 }
 
 group = "com.banking"
 version = "0.0.1-SNAPSHOT"
-description = "API Gateway for Banking System"
+description = "Demo project for Spring Boot"
 
 java {
 	toolchain {
@@ -14,26 +14,20 @@ java {
 	}
 }
 
-configurations {
-	compileOnly {
-		extendsFrom(configurations.annotationProcessor.get())
-	}
-}
-
 repositories {
 	mavenCentral()
 }
 
-extra["springCloudVersion"] = "2025.1.0"
+extra["springCloudVersion"] = "2025.0.1"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
+	implementation("org.springframework.cloud:spring-cloud-starter-bootstrap")
 	implementation("org.springframework.cloud:spring-cloud-starter-config")
 	implementation("org.springframework.cloud:spring-cloud-starter-gateway-server-webflux")
+	implementation("org.springframework.cloud:spring-cloud-starter-loadbalancer")
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
-	compileOnly("org.projectlombok:lombok")
-	annotationProcessor("org.projectlombok:lombok")
-	testImplementation("org.springframework.boot:spring-boot-starter-actuator-test")
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 

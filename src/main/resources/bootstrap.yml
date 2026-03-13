@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    config:
+      # URL donde se está ejecutando tu Config Server
+      uri: http://localhost:8888
+
+      username: admin
+      password: local123
+
+      # Perfil que deseas cargar (ej. dev, prod, local)
+      profile: dev
+
+      # Etiqueta (branch) del repositorio Git a usar (usa el que definiste en el Server Config)
+      label: main
